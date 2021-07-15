@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "976129089561",
+    "project_id": "ttolc-android",
+    "storage_bucket": "ttolc-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:976129089561:android:f40860f626dc7de5a84a88",
+        "android_client_info": {
+          "package_name": "com.example.ttolc_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "976129089561-r3ob4e59rp0eokbnc49cu6upe8771j1i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoAHPq14JzFaA_n59RvaJKG6C4nS_OHDs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "976129089561-r3ob4e59rp0eokbnc49cu6upe8771j1i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

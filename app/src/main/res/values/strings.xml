@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TTOLC-ANDROID</string>
+    <string name="button1">Button1</string>
+    <string name="button2">Button2</string>
 </resources>

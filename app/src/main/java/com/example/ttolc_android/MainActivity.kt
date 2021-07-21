@@ -1,5 +1,6 @@
 package com.example.ttolc_android
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.service.autofill.FillEventHistory
@@ -18,17 +19,24 @@ class MainActivity : AppCompatActivity() {
         val buttonB = findViewById<Button>(R.id.button17)
 
         sermonButton.setOnClickListener {
-            Toast.makeText(this, "Fade Out", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Fade Out2", Toast.LENGTH_SHORT).show()
 
             sermonButton.animate().apply {
-                buttonB.animate().apply { this.alpha(0.0F) }.start()
+
+                buttonB.animate().apply {
+                    duration = 3000
+                    this.alpha(0.0F) }.start()
             }.start()
+
+            val intent = Intent(this@MainActivity, SectionActivity::class.java)
+            startActivity(intent)
         }
 
         buttonA.setOnClickListener {
-            Toast.makeText(this, "Fade In", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Fade In1", Toast.LENGTH_SHORT).show()
 
             buttonA.animate().apply {
+                duration = 2000
                 buttonB.animate().apply { this.alpha(1.0F) }.start()
             }.start()
         }
@@ -38,6 +46,8 @@ class MainActivity : AppCompatActivity() {
             Image(R.drawable.img1),
             Image(R.drawable.img1)
         )
+
+
         val recyclerView = findViewById<RecyclerView>(R.id.mainSection)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)

@@ -9,11 +9,19 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.OnScrollListener
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //Database Declaration
+        lateinit var database : DatabaseReference
+        database = FirebaseDatabase.getInstance().getReference("User")
+
 
         val sermonButton = findViewById<Button>(R.id.button15);
         val buttonA = findViewById<Button>(R.id.button16)

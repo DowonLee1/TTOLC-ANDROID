@@ -3,23 +3,32 @@ package com.example.ttolc_android
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 
 class SectionActivity : AppCompatActivity() {
+
+    private lateinit var database : DatabaseReference
+    private lateinit var sectionRecyclerView: RecyclerView
+    private lateinit var sectionArrayList : ArrayList<SermonSection>
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_section)
 
-        val text = findViewById<TextView>(R.id.textView)
-        text.text = "Hi"
+        sectionRecyclerView = findViewById(R.id.sectionList)
+        sectionRecyclerView.layoutManager = LinearLayoutManager(this)
+        sectionRecyclerView.setHasFixedSize(true)
 
-        var sectionArray = arrayListOf<SermonSection>()
+        sectionArrayList = arrayListOf<SermonSection>()
         getData()
     }
     
     private fun getData() {
+
         //Database Declaration
-        lateinit var database : DatabaseReference
         database = FirebaseDatabase.getInstance().getReference("User")
         database.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
@@ -30,7 +39,10 @@ class SectionActivity : AppCompatActivity() {
                 if (snapshot.exists()){
                     for (userSnapShot in snapshot.children) {
                         val user = userSnapShot.getValue(SermonSection::class.java)
+                        sectionArrayList.add(user!!)
                     }
+                    sectionRecyclerView.adapter = SectionAdapter(sectionArrayList)
+
                 }
             }
 

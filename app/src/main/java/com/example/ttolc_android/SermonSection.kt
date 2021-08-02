@@ -1,6 +1,6 @@
 package com.example.ttolc_android
 
 data class SermonSection(
-        val sectionTitle : String,
-        val detailSection : String
+        val sectionTitle : String ?= null,
+        val detailSection : String ?= null
 )

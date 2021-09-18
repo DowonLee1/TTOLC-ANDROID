@@ -1,11 +1,11 @@
 package com.example.ttolc_android
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
+
 
 class SectionActivity : AppCompatActivity() {
 
@@ -24,15 +24,17 @@ class SectionActivity : AppCompatActivity() {
 
         sectionArrayList = arrayListOf<SermonSection>()
         getData()
+
     }
     
     private fun getData() {
 
         //Database Declaration
-        database = FirebaseDatabase.getInstance().getReference("User")
+        database = FirebaseDatabase.getInstance().getReference().child("koreanSection")
         database.addValueEventListener(object : ValueEventListener {
-            override fun onCancelled(error: DatabaseError) {
 
+            override fun onCancelled(error: DatabaseError) {
+                println("ERROR is --------> " + error)
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -42,7 +44,7 @@ class SectionActivity : AppCompatActivity() {
                         sectionArrayList.add(user!!)
                     }
                     sectionRecyclerView.adapter = SectionAdapter(sectionArrayList)
-
+//                    println(sectionArrayList[0].sectionTitle)
                 }
             }
 

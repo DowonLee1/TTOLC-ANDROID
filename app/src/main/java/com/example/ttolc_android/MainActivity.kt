@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         val buttonB = findViewById<Button>(R.id.button17)
 
         sermonButton.setOnClickListener {
-            Toast.makeText(this, "Fade Out2", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "Fade Out2", Toast.LENGTH_SHORT).show()
 
             sermonButton.animate().apply {
 
